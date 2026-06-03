@@ -46,23 +46,25 @@ export function LangMenu({ lang, setLang }) {
 /* ---------- Mega menu panel ---------- */
 export function MegaMenu({ t, lang, onClose }) {
   const cols = MEGA[lang];
+  const MCAT = ["accessories", "amino", "preworkout", "protein", "creatine", "protein", "preworkout", "hydration"];
+  const curl = (i) => "#/kataloog" + (MCAT[i] ? "?category=" + MCAT[i] : "");
   return (
     <div className="mega" onMouseLeave={onClose}>
       <div className="mega-inner">
-        <a className="mega-allhead" href="#">{lang === "ee" ? "Kõik sportlastele" : t.cats.all} <Icon name="arrowR" size={16} /></a>
+        <a className="mega-allhead" href="#/kataloog">{lang === "ee" ? "Kõik sportlastele" : t.cats.all} <Icon name="arrowR" size={16} /></a>
         <div className="mega-cols">
           {cols.map((c, i) => (
             <div key={i} className="mega-col">
               <h4>{c.h}</h4>
-              <ul>{c.items.map((it) => <li key={it}><a href="#">{it}</a></li>)}</ul>
-              {c.all && c.items.length ? <a className="mega-all" href="#">{lang==="ee"?"Vaata kõiki":t.cats.all} <Icon name="chevronR" size={13} /></a> : null}
+              <ul>{c.items.map((it) => <li key={it}><a href={curl(i)}>{it}</a></li>)}</ul>
+              {c.all && c.items.length ? <a className="mega-all" href={curl(i)}>{lang==="ee"?"Vaata kõiki":t.cats.all} <Icon name="chevronR" size={13} /></a> : null}
             </div>
           ))}
         </div>
         <aside className="mega-pop">
           <div className="mega-pop-label"><Icon name="flame" size={15} />{t.popular.title}</div>
           {POPULAR_NOW.map((p) => (
-            <a key={p.id} className="mega-pop-item" href="#">
+            <a key={p.id} className="mega-pop-item" href="#/toode">
               <span className="mega-pop-shot"><ProductShot container={p.container} tint={p.tint} /></span>
               <span className="mega-pop-meta">
                 <span className="mega-pop-name">{p.name}</span>

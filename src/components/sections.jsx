@@ -72,7 +72,7 @@ export function CategoriesSection({ t }) {
           {CATEGORY_META.map((c) => {
             const [name, desc] = t.cats.items[c.key];
             return (
-              <a key={c.key} className="catcard" href="#">
+              <a key={c.key} className="catcard" href={"#/kataloog" + ({athletes:"?goal=muscle",supplements:"?category=vitamins",vegan:"?vegan=1",food:"?category=snacks"}[c.key] || "")}>
                 <div className="catcard-media" style={{ "--ch": c.tint }}>
                   <ProductShot container={c.container} tint={c.tint} />
                   <span className="catcard-count">{c.count} {t.cats.count}</span>
@@ -101,7 +101,7 @@ export function GoalsSection({ t }) {
           {GOAL_META.map((g) => {
             const [name, desc] = t.goals.items[g.key];
             return (
-              <a key={g.key} className="goalcard" href="#">
+              <a key={g.key} className="goalcard" href={"#/kataloog?goal=" + g.key}>
                 <span className="goal-ic"><Icon name={GOAL_ICON[g.key]} size={24} /></span>
                 <h3>{name}</h3>
                 <p>{desc}</p>

@@ -4,6 +4,9 @@ import { Icon, ProductShot, GOAL_ICON } from "./Icon.jsx";
 import { money } from "./money.js";
 import { CATEGORY_META, GOAL_META, NEW_PRODUCTS, BESTSELLERS } from "../data/data.js";
 
+function catUrl(key) { const m = { athletes: "goal=muscle", supplements: "category=vitamins", vegan: "vegan=1", food: "category=snacks" }; return "#/kataloog" + (m[key] ? "?" + m[key] : ""); }
+const PDP_URL = "#/toode";
+
 export function BentoHero({ t, lang, onShop, onAdd }) {
   const catA = CATEGORY_META[0], catB = CATEGORY_META[1];
   const [aName] = t.cats.items[catA.key], [bName] = t.cats.items[catB.key];
@@ -30,13 +33,13 @@ export function BentoHero({ t, lang, onShop, onAdd }) {
             </div>
           </div>
 
-          <a className="bh-tile bh-cat" href="#">
+          <a className="bh-tile bh-cat" href={catUrl(catA.key)}>
             <div className="bh-cat-shot" style={{ "--ch": catA.tint }}><ProductShot container={catA.container} tint={catA.tint} /></div>
             <div className="bh-cat-l"><b>{aName}</b><span>{catA.count} {t.cats.count}</span></div>
             <span className="bh-cat-go"><Icon name="arrowR" size={15} /></span>
           </a>
 
-          <a className="bh-tile bh-cat" href="#">
+          <a className="bh-tile bh-cat" href={catUrl(catB.key)}>
             <div className="bh-cat-shot" style={{ "--ch": catB.tint }}><ProductShot container={catB.container} tint={catB.tint} /></div>
             <div className="bh-cat-l"><b>{bName}</b><span>{catB.count} {t.cats.count}</span></div>
             <span className="bh-cat-go"><Icon name="arrowR" size={15} /></span>
@@ -59,7 +62,7 @@ export function BentoHero({ t, lang, onShop, onAdd }) {
             </ul>
           </div>
 
-          <article className="bh-tile bh-prod">
+          <article className="bh-tile bh-prod" onClick={() => { window.location.href = PDP_URL; }} style={{ cursor: "pointer" }}>
             <span className="bh-badge">{t.prod.hot}</span>
             <div className="bh-prod-shot"><ProductShot container={best.container} tint={best.tint} /></div>
             <div className="bh-prod-l">
@@ -98,7 +101,7 @@ export function ProductSpotlight({ t, lang, onAdd }) {
               <button className={"btn btn-red lg " + (added ? "spot-added" : "")} onClick={add}>
                 <Icon name={added ? "check" : "plus"} size={18} />{added ? t.prod.added : t.prod.add}
               </button>
-              <a className="spot-view" href="#/toode">{t.spot.view} <Icon name="arrowR" size={15} /></a>
+              <a className="spot-view" href={PDP_URL}>{t.spot.view} <Icon name="arrowR" size={15} /></a>
             </div>
             <div className="spot-specs">
               {specs.map(([a, b], i) => <div key={i}><b>{a}</b><span>{b}</span></div>)}
@@ -130,7 +133,7 @@ export function ProductCardX({ p, t, lang, onAdd, cartMap, onStep }) {
   }
   function step(e, d) { e.stopPropagation(); onStep(currentId, d); }
   return (
-    <article className="pcardx" tabIndex={0}>
+    <article className="pcardx" tabIndex={0} onClick={() => { window.location.href = PDP_URL; }} style={{ cursor: "pointer" }}>
       <div className="pcardx-media">
         {badge ? <span className={"pbadge " + (p.badge === "hot" ? "pbadge-hot" : "")}>{badge}</span> : null}
         <ProductShot container={p.container} tint={p.tint} />
