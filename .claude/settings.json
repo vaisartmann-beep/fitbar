@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p extracted)",
+      "Bash(tar -xzf webfetch-1780523575198-erwgz6.bin -C extracted)",
+      "Bash(echo \"---exit:$?---\")",
+      "Bash(npm --version)",
+      "Bash(mkdir -p \"c:\\\\Users\\\\Vaismann\\\\Documents\\\\fitbar\\\\src\\\\styles\" \"c:\\\\Users\\\\Vaismann\\\\Documents\\\\fitbar\\\\src\\\\components\" \"c:\\\\Users\\\\Vaismann\\\\Documents\\\\fitbar\\\\src\\\\data\" && cp \"C:\\\\Users\\\\Vaismann\\\\.claude\\\\projects\\\\c--Users-Vaismann-Documents-fitbar\\\\26e754b0-d83d-42f3-8a48-00171307bdd6\\\\tool-results\\\\extracted\\\\fitbar\\\\project\\\\fitbar.css\" \"c:\\\\Users\\\\Vaismann\\\\Documents\\\\fitbar\\\\src\\\\styles\\\\fitbar.css\" && echo \"copied; lines:\" && wc -l \"c:\\\\Users\\\\Vaismann\\\\Documents\\\\fitbar\\\\src\\\\styles\\\\fitbar.css\")",
+      "Bash(sed -n '13,308p' \"Fitbar Toode.html\")",
+      "Read(//tmp/**)",
+      "Bash(node -e ' *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Vaismann\\.claude\\projects\\c--Users-Vaismann-Documents-fitbar\\26e754b0-d83d-42f3-8a48-00171307bdd6\\tool-results\\extracted\\fitbar\\project"
+    ]
+  }
+}
