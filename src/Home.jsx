@@ -61,7 +61,7 @@ function CartDrawer({ open, onClose, items, setItems, t, lang }) {
             </div>
             <div className="drawer-foot">
               <div className="drawer-sub"><span>{t.cartUI.subtotal}</span><strong>{money(subtotal, lang)}</strong></div>
-              <button className="btn btn-red full lg">{t.cartUI.checkout} <Icon name="arrowR" size={18} /></button>
+              <button className="btn btn-red full lg" onClick={() => { window.location.hash = "#/checkout"; }}>{t.cartUI.checkout} <Icon name="arrowR" size={18} /></button>
             </div>
           </React.Fragment>
         )}

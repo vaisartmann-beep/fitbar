@@ -3,9 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./styles/fitbar.css";
 import "./styles/pdp.css";
 import "./styles/kataloog.css";
+import "./styles/checkout.css";
 import Home from "./Home.jsx";
 import Pdp from "./App.jsx";
 import Catalog from "./Catalog.jsx";
+import Checkout from "./Checkout.jsx";
 
 /* Hash-based routing keeps deep links working on static hosts (GitHub Pages)
    without server rewrites. Query params live after the path in the hash, e.g.
@@ -27,6 +29,7 @@ function Root() {
   }, []);
   if (route.path.startsWith("/toode")) return <Pdp />;
   if (route.path.startsWith("/kataloog")) return <Catalog key={route.query} params={route.params} />;
+  if (route.path.startsWith("/checkout")) return <Checkout params={route.params} />;
   return <Home />;
 }
 
