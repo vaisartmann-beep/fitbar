@@ -96,7 +96,7 @@ export function Header({ t, lang, setLang, cartCount, onCart }) {
       <div className="promo"><div className="wrap promo-in"><Icon name="truck" size={15} />{t.promo}</div></div>
       <div className="hdr-main">
         <div className="wrap hdr-row">
-          <a className="hdr-brand" href="#" aria-label="Fitbar.ee">
+          <a className="hdr-brand" href="#/" aria-label="Fitbar.ee">
             <span className="brand-plate"><Wordmark light /></span>
           </a>
           <nav className="hdr-nav" onMouseLeave={() => setMega(false)}>

@@ -122,7 +122,7 @@ export function BuyBox({ p, onAdd, fi, setFi, pi, setPi, qty, setQty, sub, setSu
   return (
     <div className="pdp-buy">
       <nav className="pdp-crumbs" aria-label="Breadcrumb">
-        <a href="#">Avaleht</a><span>/</span><a href="#">Pood</a><span>/</span><a href="#">Enne treeningut</a>
+        <a href="#/">Avaleht</a><span>/</span><a href="#">Pood</a><span>/</span><a href="#">Enne treeningut</a>
       </nav>
       <a className="pdp-brand" href="#">{p.brand}</a>
       <h1 className="pdp-title">{p.h1}</h1>
